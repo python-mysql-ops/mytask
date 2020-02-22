@@ -1,4 +1,0 @@
----
-# tasks file for python3
-- import_tasks: install.yml
-- import_tasks: config.yml

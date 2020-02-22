@@ -1,4 +1,0 @@
----
-# tasks file for consul_template
-- import_tasks: install.yml
-- import_tasks: config.yml

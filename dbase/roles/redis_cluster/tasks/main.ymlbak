@@ -1,7 +1,0 @@
----
- - handlers:
-     - import_tasks: ../handlers/handles.yml
-   become: true
-   tasks:
-     - import_tasks: install.yml
-     - import_tasks: config.yml
