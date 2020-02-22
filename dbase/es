@@ -14,4 +14,4 @@ es_master_host=DH0179-14-81-master
 ansible_ssh_user=root
 ansible_ssh_pass=$#EDC4rfv
 ansible_connection=ssh
-#ansible_sudo_pass=Yabo12345678
+#ansible_sudo_pass=

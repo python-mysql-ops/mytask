@@ -16,7 +16,7 @@ orchpass=OsUkZgQ0A1
 
 [all:vars]
 roles_path = ./roles
-##ansible_sudo_pass=Yabo12345678
+##ansible_sudo_pass=
 ansible_port=22
 ansible_ssh_user=root
 ansible_ssh_pass=$#EDC4rfv
