@@ -1,0 +1,21 @@
+[bk]
+172.18.100.241
+
+[bk:vars]
+bk_type=1
+srcdbhost=172.18.100.241
+srcdbport=6603
+backupdbname=qp_console_db
+srcdbmylogin=root
+srcdbmypasswd=root
+backupdir=/tmp
+destdbhost=172.18.14.85
+destdbport=3309
+destdbmylogin=root
+destdbmypaasswd=1qaz2wsx
+
+[all:vars]
+roles_path = ./roles
+ansible_port=22
+ansible_ssh_user=root
+ansible_ssh_pass=Abc@123

@@ -1,0 +1,17 @@
+[Unit]
+Description="orchestrator"
+Documentation=https://github.com/github/orchestrator
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+User=orchestrator
+Group=orchestrator
+WorkingDirectory=/usr/local/orchestrator
+ExecStart=/usr/local/orchestrator/orchestrator http
+KillSignal=SIGINT
+Restart=on-failure
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

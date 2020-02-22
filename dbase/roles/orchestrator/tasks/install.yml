@@ -1,0 +1,17 @@
+---
+- name: yum install epel,jq
+  yum:
+    name: "{{item.name}}"
+    state: present
+    update_cache: true
+  with_items:
+    - {name: "epel-release"}
+    - {name: "jq"}
+
+- name: install orchestrator
+  yum: 
+    name: https://github.com/github/orchestrator/releases/download/v3.1.2/orchestrator-sysv-3.1.2-1.x86_64.rpm
+    state: present
+
+- name: set system timezone
+  shell: timedatectl set-timezone Asia/Hong_Kong

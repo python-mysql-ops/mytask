@@ -1,0 +1,35 @@
+---
+- name: create config directory
+  file:
+    path: "{{template_dir}}"
+    state: directory
+    owner: consul
+    group: consul
+    recurse: yes
+
+- name: cp template file
+  template:
+    src:  "{{item.src}}"
+    dest: "{{item.dest}}"
+    force: yes
+    owner: "{{item.owner}}"
+    group: "{{item.group}}"
+  with_items:
+    - {src: ../templates/consul_template.j2, dest: "{{template_dir}}/mysql.json", owner: consul, group: consul}
+    - {src: ../templates/systemctl.j2, dest: /lib/systemd/system/consul_template.service, owner: root, group: root}
+
+- name: enable consul template service
+  systemd:
+    name: consul_template 
+    enabled: yes
+    state: started
+    daemon_reload: yes
+
+- name: add dns config
+  lineinfile:
+    path: /etc/resolv.conf
+    regexp: '127\.0\.0\.1$'
+    state: present
+    line: nameserver 127.0.0.1
+    
+    

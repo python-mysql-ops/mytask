@@ -1,0 +1,17 @@
+[es]
+es1  ansible_ssh_host=10.3.12.3  es_role=master  http_port=9200 tsport=19200 jvmsize=16g
+es2  ansible_ssh_host=10.3.12.3  es_role=data3   http_port=9201 tsport=19201  jvmsize=26g
+es3  ansible_ssh_host=10.3.12.3  es_role=client   http_port=9202 tsport=19202 jvmsize=26g
+
+[es:vars]
+es_pass=1qaz2wsx
+kibana_pass=kYhjdBr12TdC1FdNrRRR
+version=elasticsearch-7.5.0-1
+master_number=2
+cluster_name=prodes
+es_cluster_hosts='["10.3.12.1:19200","10.3.12.2:19200","10.3.12.3:19200"]'
+es_master_host=DH0179-14-81-master
+ansible_ssh_user=root
+ansible_ssh_pass=$#EDC4rfv
+ansible_connection=ssh
+#ansible_sudo_pass=Yabo12345678

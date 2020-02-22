@@ -1,0 +1,16 @@
+[Unit]
+Description="HashiCorp Consul - A service mesh solution"
+Documentation=https://www.consul.io/
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+User=consul
+Group=consul
+ExecStart=/usr/bin/consul-template  -template "{{template_dir}}/mysql.json:{{consul_config_dir}}/mysql.json:consul reload" -consul-addr "127.0.0.1:8500"
+KillMode=process
+Restart=on-failure
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

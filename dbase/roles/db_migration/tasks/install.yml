@@ -1,0 +1,34 @@
+---
+- name: install mydumper
+  yum:
+    name: https://github.com/maxbube/mydumper/releases/download/v0.9.5/mydumper-0.9.5-2.el7.x86_64.rpm
+    state: present
+  register: stuff
+  when: bk_type==1
+
+- name: install python-pip
+  yum:
+    name: python-pip
+    state: present
+    
+- name: install rsync
+  yum:
+    name: "{{item.name}}"
+  with_items:
+    - {name: sshpass}
+    - {name: rsync}
+
+- name: install py mysql
+  pip:
+    name: "{{item.name}}"
+  when: bk_type==0
+  with_items:
+    - {name: PyMySQL}
+    - {name: cryptography}
+    - {name: "PyMySQL[rsa]"}
+
+- name: cp template file
+  template:
+    src: ../templates/pymysql.j2
+    dest: /tmp/mysql_cp.py
+    mode: o+x 

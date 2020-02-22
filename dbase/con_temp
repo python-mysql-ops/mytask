@@ -1,0 +1,15 @@
+[consul_temp]
+DH0179-14-84 ansible_ssh_host=10.3.11.5
+DH0179-14-85 ansible_ssh_host=10.3.11.6
+DH0179-14-86 ansible_ssh_host=10.3.11.7
+
+[consul_temp:vars]
+template_dir=/etc/consul_template
+consul_config_dir=/etc/consul.d
+orch_db_cluster=qp
+mysqlport=3309
+StrictHostKeyChecking=no
+ansible_connection=ssh
+ansible_port=22
+ansible_ssh_user=root
+ansible_ssh_pass=$#EDC4rfv

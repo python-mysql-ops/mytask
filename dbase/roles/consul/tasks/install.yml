@@ -1,0 +1,19 @@
+---
+- name: yum install epel,jq
+  yum:
+    name: "{{item.name}}"
+    state: present
+    update_cache: true
+  with_items:
+    - {name: epel-release}
+    - {name: unzip}    
+
+- name: download consulzip file
+  unarchive:
+    src: https://releases.hashicorp.com/consul/1.6.1/consul_1.6.1_linux_amd64.zip
+    dest: /usr/bin
+    mode: o+x
+    remote_src: yes
+
+- name: set system timezone
+  shell: timedatectl set-timezone Asia/Hong_Kong

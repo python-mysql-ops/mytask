@@ -1,0 +1,3 @@
+---
+# tasks file for mongo
+- import_tasks: install.yml

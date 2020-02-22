@@ -1,0 +1,29 @@
+---
+- name: change es user password
+  run_once: true
+  uri:
+    url: "http://{{ansible_ssh_host}}:{{http_port}}/_security/user/kibana/_password"
+    url_username: elastic
+    url_password: "{{es_pass}}"
+    force_basic_auth: yes
+    method: POST
+    return_content: yes
+    body_format: json
+    body: "{'password' : '{{kibana_pass}}' }"
+  tags:
+    - es_config  
+- name: pause 1 minutes
+  pause:
+    minutes: 1
+
+- name: add logstash_write role
+  run_once: true
+  uri:
+    url: "http://{{ansible_ssh_host}}:{{http_port}}/_security/role/logstash_write"
+    user: elastic
+    password: "{{es_pass}}"
+    body: '{  "cluster": [    "monitor",    "manage_index_templates"  ],  "indices": [    {      "names": [        "logstash*"      ],      "privileges": [        "write",        "create_index"      ],      "field_security": {        "grant": [          "*"        ]      }    }  ],  "run_as": [],  "metadata": {},  "transient_metadata": {    "enabled": true  }}'
+    method: POST
+    body_format: json
+  tags:
+    - es_config

@@ -1,0 +1,12 @@
+[consul]
+172.18.100.171
+172.18.100.172
+172.18.100.173
+
+[consul:vars]
+StrictHostKeyChecking=no
+consul_cluster_hosts='["172.18.100.171","172.18.100.172","172.18.100.173"]'
+ansible_connection=ssh
+ansible_port=22
+ansible_ssh_user=vagrant
+ansible_ssh_pass=vagrant

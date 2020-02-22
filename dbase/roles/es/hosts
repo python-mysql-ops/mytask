@@ -1,0 +1,14 @@
+[es]
+192.168.56.101  es_rorle=data1  http_port=9200 tsport=19200 
+192.168.56.102  es_role=data1   http_port=9201 tsport=19201
+192.168.56.103  es_role=data1   http_port=9202 tsport=19202
+
+[es:vars]
+master_number=1
+cluster_name=autoansible
+es_cluster_hosts='["192.168.56.101","192.168.56.102","192.168.56.103"]'
+es_master_host=test1-master
+ansible_ssh_user=root
+ansible_ssh_pass=Abc@123
+ansible_connection=ssh
+

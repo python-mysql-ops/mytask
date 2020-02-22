@@ -1,0 +1,14 @@
+[bk]
+172.18.100.241
+
+[bk:vars]
+srcdbhost=172.18.100.241
+srcdbport=6603
+backupdbname=qp_console_db
+srcdbmylogin=root
+srcdbmypasswd=root
+backupdir=tmp
+destdbhost=172.18.14.85
+destdbport=3309
+destdbmylogin=root
+destdbmypaasswd=1qaz2wsx

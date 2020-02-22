@@ -1,0 +1,27 @@
+{
+    "cluster": [
+      "monitor",
+      "manage_index_templates"
+    ],
+    "indices": [
+      {
+        "names": [
+          "gamerecord*"
+        ],
+        "privileges": [
+          "write",
+          "create_index"
+        ],
+        "field_security": {
+          "grant": [
+            "*"
+          ]
+        }
+      }
+    ],
+    "run_as": [],
+    "metadata": {},
+    "transient_metadata": {
+      "enabled": true
+    }
+}

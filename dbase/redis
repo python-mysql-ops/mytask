@@ -1,0 +1,21 @@
+[redis]
+redis1 ansible_ssh_host=10.3.11.1 redis_data_dir=/data/redis/6306 redis_port=6306
+redis2 ansible_ssh_host=10.3.11.1 redis_data_dir=/data/redis/6309 redis_port=6309
+redis3 ansible_ssh_host=10.3.11.2 redis_data_dir=/data/redis/6306 redis_port=6306
+redis4 ansible_ssh_host=10.3.11.2 redis_data_dir=/data/redis/6307 redis_port=6307
+redis5 ansible_ssh_host=10.3.11.3 redis_data_dir=/data/redis/6308 redis_port=6308
+redis6 ansible_ssh_host=10.3.11.3 redis_data_dir=/data/redis/6307 redis_port=6307
+redis7 ansible_ssh_host=10.3.11.4 redis_data_dir=/data/redis/6309 redis_port=6309
+redis8 ansible_ssh_host=10.3.11.4 redis_data_dir=/data/redis/6307 redis_port=6308
+
+
+[redis:vars]
+redis_cluster_addres=10.3.11.1:6306 10.3.11.3:6308 10.3.11.2:6307 10.3.11.4:6309 10.3.11.1:6309 10.3.11.2:6306 10.3.11.4:6308 10.3.11.3:6307 
+redispass=vi6SaU925f
+replicat_fact=1
+[all:vars]
+roles_path = ./roles
+ansible_port=22
+ansible_ssh_user=root
+ansible_ssh_pass=$#EDC4rfv
+#ansible_sudo_pass=Yabo12345678

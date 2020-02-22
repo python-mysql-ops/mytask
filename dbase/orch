@@ -1,0 +1,14 @@
+[orch]
+db1.qp ansible_ssh_host=10.3.11.5
+db2.qp ansible_ssh_host=10.3.11.6
+db3.qp ansible_ssh_host=10.3.11.7
+
+[orch:vars]
+consul_host=10.3.11.5:8500
+orch_cluster_hots='"10.3.11.5","10.3.11.6","10.3.11.7"'
+orchpass=OsUkZgQ0A1
+ansible_connection=ssh
+ansible_port=22
+ansible_ssh_user=root
+ansible_ssh_pass=$#EDC4rfv
+

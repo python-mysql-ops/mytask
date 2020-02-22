@@ -1,0 +1,10 @@
+[python3]
+l4  ansible_ssh_host=10.3.11.8
+
+
+[all:vars]
+roles_path = ./roles
+##ansible_sudo_pass=Yabo12345678
+ansible_port=22
+ansible_ssh_user=root
+ansible_ssh_pass=$#EDC4rfv

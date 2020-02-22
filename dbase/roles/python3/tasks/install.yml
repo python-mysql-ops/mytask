@@ -1,0 +1,34 @@
+---
+- name: install base tools
+  yum:
+    name: 
+      - epel-release
+      - gcc 
+      - gcc-c++  
+      - openssl-devel
+
+- name: download python
+  unarchive:
+    src: https://www.python.org/ftp/python/3.8.1/Python-3.8.1.tgz
+    dest: /tmp
+    creates: /tmp/python3.8.1
+    remote_src: yes
+
+- name: mode python3 file
+  lineinfile:
+    path: /tmp/Python-3.8.1/Modules/Setup
+    regexp: "{{item.regexp}}"
+    line: "{{item.line}}"
+  with_items: 
+     - {regexp: "^#SSL=/usr/local/ssl", line: "SSL=/usr/local/ssl" }
+     - {regexp: "^#_ssl _ssl.c", line: "_ssl _ssl.c \\"}
+     - {regexp: "^#\\s+-DUSE_SSL", line: "       -DUSE_SSL -I$(SSL)/include -I$(SSL)/include/openssl \\" }
+     - {regexp: "^#\\s+-L*.*crypto$", line: "       -L$(SSL)/lib -lssl -lcrypto"}
+
+- name: make python3
+  shell:  /tmp/Python-3.8.1/configure && make && make install
+  args:
+    chdir: /tmp/Python-3.8.1/  
+
+- name: pip install mysql
+  command: /usr/local/bin/pip3.8 install mysql-connector-python

@@ -1,0 +1,6 @@
+- name: back mysql db
+  hosts: bk
+  become: true
+  roles:
+    - role: db_migration
+

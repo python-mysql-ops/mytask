@@ -1,0 +1,6 @@
+---
+- name: start redis service
+  systemd:
+    state: started
+    name: "redis_{{redis_port}}"
+    daemon_reload: yes

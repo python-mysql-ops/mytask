@@ -1,0 +1,15 @@
+---
+- name: check if datadir exists
+   stat:
+     path: "{{data_dir}}"
+   register: dir_details
+
+- name: create es  datadir
+  file:
+    path: "{{data_dir}}"
+    state: directory
+    group: mongod
+    owner: mongod
+  when: dir_details.stat.exists == false
+
+- name: 

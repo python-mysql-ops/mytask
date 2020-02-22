@@ -1,0 +1,692 @@
+_ansible_facts_gathered: true
+ansible_all_ipv4_addresses:
+- 172.18.229.110
+ansible_all_ipv6_addresses:
+- fe80::b62e:99ff:fe8c:e701
+ansible_apparmor:
+  status: disabled
+ansible_architecture: x86_64
+ansible_bios_date: 08/13/2019
+ansible_bios_version: F13
+ansible_cmdline:
+  BOOT_IMAGE: /vmlinuz-3.10.0-1062.el7.x86_64
+  LANG: zh_CN.UTF-8
+  crashkernel: auto
+  quiet: true
+  rd.lvm.lv: centos/swap
+  rhgb: true
+  ro: true
+  root: /dev/mapper/centos-root
+  spectre_v2: retpoline
+ansible_date_time:
+  date: '2020-01-03'
+  day: '03'
+  epoch: '1578043922'
+  hour: '17'
+  iso8601: '2020-01-03T09:32:02Z'
+  iso8601_basic: 20200103T173202496837
+  iso8601_basic_short: 20200103T173202
+  iso8601_micro: '2020-01-03T09:32:02.497084Z'
+  minute: '32'
+  month: '01'
+  second: '02'
+  time: '17:32:02'
+  tz: CST
+  tz_offset: +0800
+  weekday: "\u661F\u671F\u4E94"
+  weekday_number: '5'
+  weeknumber: '00'
+  year: '2020'
+ansible_default_ipv4:
+  address: 172.18.229.110
+  alias: eno1
+  broadcast: 172.18.229.255
+  gateway: 172.18.229.254
+  interface: eno1
+  macaddress: b4:2e:99:8c:e7:01
+  mtu: 1500
+  netmask: 255.255.255.0
+  network: 172.18.229.0
+  type: ether
+ansible_default_ipv6: {}
+ansible_device_links:
+  ids:
+    dm-0:
+    - dm-name-centos-root
+    - dm-uuid-LVM-FCE3KK9MKc1uSKQNq72zADPVAoZlr1lzal4tGgFSGUQtXsvw3NUxCxZaBkgOIuu9
+    dm-1:
+    - dm-name-centos-swap
+    - dm-uuid-LVM-FCE3KK9MKc1uSKQNq72zADPVAoZlr1lzMbckRypztjNuKG9JpxL9CdlYUl06DlIb
+    dm-2:
+    - dm-name-centos-home
+    - dm-uuid-LVM-FCE3KK9MKc1uSKQNq72zADPVAoZlr1lz2l7MeRenfsMHZBeDxFwq7g2gLxvo91Ch
+    sda:
+    - ata-Samsung_SSD_860_QVO_1TB_S4CZNF0MB00331V
+    - wwn-0x5002538e49b019d8
+    sda1:
+    - ata-Samsung_SSD_860_QVO_1TB_S4CZNF0MB00331V-part1
+    - wwn-0x5002538e49b019d8-part1
+    sda2:
+    - ata-Samsung_SSD_860_QVO_1TB_S4CZNF0MB00331V-part2
+    - wwn-0x5002538e49b019d8-part2
+    sda3:
+    - ata-Samsung_SSD_860_QVO_1TB_S4CZNF0MB00331V-part3
+    - lvm-pv-uuid-cWNH3j-MNTy-JBDX-T04k-GtB6-tphg-PKh6Ie
+    - wwn-0x5002538e49b019d8-part3
+  labels: {}
+  masters:
+    sda3:
+    - dm-0
+    - dm-1
+    - dm-2
+  uuids:
+    dm-0:
+    - 5b485a67-af51-41d2-854a-a00def2839b4
+    dm-1:
+    - 1626a444-6117-40f1-8b27-d3639c2f0994
+    dm-2:
+    - 07306d80-9fb1-4083-a8fb-d0d9a661137f
+    sda1:
+    - B762-5965
+    sda2:
+    - fb076186-f883-4b54-88d5-205aca5b9862
+ansible_devices:
+  dm-0:
+    holders: []
+    host: ''
+    links:
+      ids:
+      - dm-name-centos-root
+      - dm-uuid-LVM-FCE3KK9MKc1uSKQNq72zADPVAoZlr1lzal4tGgFSGUQtXsvw3NUxCxZaBkgOIuu9
+      labels: []
+      masters: []
+      uuids:
+      - 5b485a67-af51-41d2-854a-a00def2839b4
+    model: null
+    partitions: {}
+    removable: '0'
+    rotational: '0'
+    sas_address: null
+    sas_device_handle: null
+    scheduler_mode: ''
+    sectors: '104857600'
+    sectorsize: '512'
+    serial: S4CZNF0MB00331V
+    size: 50.00 GB
+    support_discard: '512'
+    vendor: null
+    virtual: 1
+  dm-1:
+    holders: []
+    host: ''
+    links:
+      ids:
+      - dm-name-centos-swap
+      - dm-uuid-LVM-FCE3KK9MKc1uSKQNq72zADPVAoZlr1lzMbckRypztjNuKG9JpxL9CdlYUl06DlIb
+      labels: []
+      masters: []
+      uuids:
+      - 1626a444-6117-40f1-8b27-d3639c2f0994
+    model: null
+    partitions: {}
+    removable: '0'
+    rotational: '0'
+    sas_address: null
+    sas_device_handle: null
+    scheduler_mode: ''
+    sectors: '32899072'
+    sectorsize: '512'
+    serial: S4CZNF0MB00331V
+    size: 15.69 GB
+    support_discard: '512'
+    vendor: null
+    virtual: 1
+  dm-2:
+    holders: []
+    host: ''
+    links:
+      ids:
+      - dm-name-centos-home
+      - dm-uuid-LVM-FCE3KK9MKc1uSKQNq72zADPVAoZlr1lz2l7MeRenfsMHZBeDxFwq7g2gLxvo91Ch
+      labels: []
+      masters: []
+      uuids:
+      - 07306d80-9fb1-4083-a8fb-d0d9a661137f
+    model: null
+    partitions: {}
+    removable: '0'
+    rotational: '0'
+    sas_address: null
+    sas_device_handle: null
+    scheduler_mode: ''
+    sectors: '1813241856'
+    sectorsize: '512'
+    serial: S4CZNF0MB00331V
+    size: 864.62 GB
+    support_discard: '512'
+    vendor: null
+    virtual: 1
+  sda:
+    holders: []
+    host: 'SATA controller: Intel Corporation 200 Series PCH SATA controller [AHCI
+      mode]'
+    links:
+      ids:
+      - ata-Samsung_SSD_860_QVO_1TB_S4CZNF0MB00331V
+      - wwn-0x5002538e49b019d8
+      labels: []
+      masters: []
+      uuids: []
+    model: Samsung SSD 860
+    partitions:
+      sda1:
+        holders: []
+        links:
+          ids:
+          - ata-Samsung_SSD_860_QVO_1TB_S4CZNF0MB00331V-part1
+          - wwn-0x5002538e49b019d8-part1
+          labels: []
+          masters: []
+          uuids:
+          - B762-5965
+        sectors: '409600'
+        sectorsize: 512
+        size: 200.00 MB
+        start: '2048'
+        uuid: B762-5965
+      sda2:
+        holders: []
+        links:
+          ids:
+          - ata-Samsung_SSD_860_QVO_1TB_S4CZNF0MB00331V-part2
+          - wwn-0x5002538e49b019d8-part2
+          labels: []
+          masters: []
+          uuids:
+          - fb076186-f883-4b54-88d5-205aca5b9862
+        sectors: '2097152'
+        sectorsize: 512
+        size: 1.00 GB
+        start: '411648'
+        uuid: fb076186-f883-4b54-88d5-205aca5b9862
+      sda3:
+        holders:
+        - centos-root
+        - centos-swap
+        - centos-home
+        links:
+          ids:
+          - ata-Samsung_SSD_860_QVO_1TB_S4CZNF0MB00331V-part3
+          - lvm-pv-uuid-cWNH3j-MNTy-JBDX-T04k-GtB6-tphg-PKh6Ie
+          - wwn-0x5002538e49b019d8-part3
+          labels: []
+          masters:
+          - dm-0
+          - dm-1
+          - dm-2
+          uuids: []
+        sectors: '1951014912'
+        sectorsize: 512
+        size: 930.32 GB
+        start: '2508800'
+        uuid: null
+    removable: '0'
+    rotational: '0'
+    sas_address: null
+    sas_device_handle: null
+    scheduler_mode: deadline
+    sectors: '1953525168'
+    sectorsize: '512'
+    serial: S4CZNF0MB00331V
+    size: 931.51 GB
+    support_discard: '512'
+    vendor: ATA
+    virtual: 1
+    wwn: '0x5002538e49b019d8'
+ansible_distribution: CentOS
+ansible_distribution_file_parsed: true
+ansible_distribution_file_path: /etc/redhat-release
+ansible_distribution_file_variety: RedHat
+ansible_distribution_major_version: '7'
+ansible_distribution_release: Core
+ansible_distribution_version: '7.7'
+ansible_dns:
+  nameservers:
+  - 8.8.8.8
+ansible_domain: ''
+ansible_effective_group_id: 0
+ansible_effective_user_id: 0
+ansible_eno1:
+  active: true
+  device: eno1
+  features:
+    busy_poll: off [fixed]
+    fcoe_mtu: off [fixed]
+    generic_receive_offload: 'on'
+    generic_segmentation_offload: 'on'
+    highdma: on [fixed]
+    hw_tc_offload: off [fixed]
+    l2_fwd_offload: off [fixed]
+    large_receive_offload: off [fixed]
+    loopback: off [fixed]
+    netns_local: off [fixed]
+    ntuple_filters: off [fixed]
+    receive_hashing: 'on'
+    rx_all: 'off'
+    rx_checksumming: 'on'
+    rx_fcs: 'off'
+    rx_gro_hw: off [fixed]
+    rx_udp_tunnel_port_offload: off [fixed]
+    rx_vlan_filter: off [fixed]
+    rx_vlan_offload: 'on'
+    rx_vlan_stag_filter: off [fixed]
+    rx_vlan_stag_hw_parse: off [fixed]
+    scatter_gather: 'on'
+    tcp_segmentation_offload: 'on'
+    tx_checksum_fcoe_crc: off [fixed]
+    tx_checksum_ip_generic: 'on'
+    tx_checksum_ipv4: off [fixed]
+    tx_checksum_ipv6: off [fixed]
+    tx_checksum_sctp: off [fixed]
+    tx_checksumming: 'on'
+    tx_fcoe_segmentation: off [fixed]
+    tx_gre_csum_segmentation: off [fixed]
+    tx_gre_segmentation: off [fixed]
+    tx_gso_partial: off [fixed]
+    tx_gso_robust: off [fixed]
+    tx_ipip_segmentation: off [fixed]
+    tx_lockless: off [fixed]
+    tx_nocache_copy: 'off'
+    tx_scatter_gather: 'on'
+    tx_scatter_gather_fraglist: off [fixed]
+    tx_sctp_segmentation: off [fixed]
+    tx_sit_segmentation: off [fixed]
+    tx_tcp6_segmentation: 'on'
+    tx_tcp_ecn_segmentation: off [fixed]
+    tx_tcp_mangleid_segmentation: 'off'
+    tx_tcp_segmentation: 'on'
+    tx_udp_tnl_csum_segmentation: off [fixed]
+    tx_udp_tnl_segmentation: off [fixed]
+    tx_vlan_offload: 'on'
+    tx_vlan_stag_hw_insert: off [fixed]
+    udp_fragmentation_offload: off [fixed]
+    vlan_challenged: off [fixed]
+  hw_timestamp_filters:
+  - none
+  - all
+  - ptp_v1_l4_sync
+  - ptp_v1_l4_delay_req
+  - ptp_v2_l4_sync
+  - ptp_v2_l4_delay_req
+  - ptp_v2_l2_sync
+  - ptp_v2_l2_delay_req
+  - ptp_v2_event
+  - ptp_v2_sync
+  - ptp_v2_delay_req
+  ipv4:
+    address: 172.18.229.110
+    broadcast: 172.18.229.255
+    netmask: 255.255.255.0
+    network: 172.18.229.0
+  ipv6:
+  - address: fe80::b62e:99ff:fe8c:e701
+    prefix: '64'
+    scope: link
+  macaddress: b4:2e:99:8c:e7:01
+  module: e1000e
+  mtu: 1500
+  pciid: 0000:00:1f.6
+  phc_index: 0
+  promisc: false
+  speed: 1000
+  timestamping:
+  - tx_hardware
+  - tx_software
+  - rx_hardware
+  - rx_software
+  - software
+  - raw_hardware
+  type: ether
+ansible_env:
+  HOME: /root
+  LANG: C
+  LC_ALL: C
+  LC_NUMERIC: C
+  LESSOPEN: '||/usr/bin/lesspipe.sh %s'
+  LOGNAME: root
+  MAIL: /var/mail/root
+  PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
+  PWD: /root
+  SELINUX_LEVEL_REQUESTED: ''
+  SELINUX_ROLE_REQUESTED: ''
+  SELINUX_USE_CURRENT_RANGE: ''
+  SHELL: /bin/bash
+  SHLVL: '2'
+  SSH_CLIENT: 172.18.222.151 52756 22
+  SSH_CONNECTION: 172.18.222.151 52756 172.18.229.110 22
+  USER: root
+  XDG_RUNTIME_DIR: /run/user/0
+  XDG_SESSION_ID: '725'
+  _: /usr/bin/python
+ansible_fibre_channel_wwn: []
+ansible_fips: false
+ansible_form_factor: Desktop
+ansible_fqdn: qp-bd-server-09
+ansible_hostname: qp-bd-server-09
+ansible_hostnqn: ''
+ansible_interfaces:
+- eno1
+- lo
+ansible_is_chroot: false
+ansible_iscsi_iqn: iqn.1994-05.com.redhat:f87a54d3268d
+ansible_kernel: 3.10.0-1062.el7.x86_64
+ansible_lo:
+  active: true
+  device: lo
+  features:
+    busy_poll: off [fixed]
+    fcoe_mtu: off [fixed]
+    generic_receive_offload: 'on'
+    generic_segmentation_offload: 'on'
+    highdma: on [fixed]
+    hw_tc_offload: off [fixed]
+    l2_fwd_offload: off [fixed]
+    large_receive_offload: off [fixed]
+    loopback: on [fixed]
+    netns_local: on [fixed]
+    ntuple_filters: off [fixed]
+    receive_hashing: off [fixed]
+    rx_all: off [fixed]
+    rx_checksumming: on [fixed]
+    rx_fcs: off [fixed]
+    rx_gro_hw: off [fixed]
+    rx_udp_tunnel_port_offload: off [fixed]
+    rx_vlan_filter: off [fixed]
+    rx_vlan_offload: off [fixed]
+    rx_vlan_stag_filter: off [fixed]
+    rx_vlan_stag_hw_parse: off [fixed]
+    scatter_gather: 'on'
+    tcp_segmentation_offload: 'on'
+    tx_checksum_fcoe_crc: off [fixed]
+    tx_checksum_ip_generic: on [fixed]
+    tx_checksum_ipv4: off [fixed]
+    tx_checksum_ipv6: off [fixed]
+    tx_checksum_sctp: on [fixed]
+    tx_checksumming: 'on'
+    tx_fcoe_segmentation: off [fixed]
+    tx_gre_csum_segmentation: off [fixed]
+    tx_gre_segmentation: off [fixed]
+    tx_gso_partial: off [fixed]
+    tx_gso_robust: off [fixed]
+    tx_ipip_segmentation: off [fixed]
+    tx_lockless: on [fixed]
+    tx_nocache_copy: off [fixed]
+    tx_scatter_gather: on [fixed]
+    tx_scatter_gather_fraglist: on [fixed]
+    tx_sctp_segmentation: 'on'
+    tx_sit_segmentation: off [fixed]
+    tx_tcp6_segmentation: 'on'
+    tx_tcp_ecn_segmentation: 'on'
+    tx_tcp_mangleid_segmentation: 'on'
+    tx_tcp_segmentation: 'on'
+    tx_udp_tnl_csum_segmentation: off [fixed]
+    tx_udp_tnl_segmentation: off [fixed]
+    tx_vlan_offload: off [fixed]
+    tx_vlan_stag_hw_insert: off [fixed]
+    udp_fragmentation_offload: 'on'
+    vlan_challenged: on [fixed]
+  hw_timestamp_filters: []
+  ipv4:
+    address: 127.0.0.1
+    broadcast: host
+    netmask: 255.0.0.0
+    network: 127.0.0.0
+  ipv6:
+  - address: ::1
+    prefix: '128'
+    scope: host
+  mtu: 65536
+  promisc: false
+  timestamping:
+  - rx_software
+  - software
+  type: loopback
+ansible_local: {}
+ansible_lsb:
+  codename: Core
+  description: CentOS Linux release 7.7.1908 (Core)
+  id: CentOS
+  major_release: '7'
+  release: 7.7.1908
+ansible_lvm:
+  lvs:
+    home:
+      size_g: '864.62'
+      vg: centos
+    root:
+      size_g: '50.00'
+      vg: centos
+    swap:
+      size_g: '15.69'
+      vg: centos
+  pvs:
+    /dev/sda3:
+      free_g: '0.00'
+      size_g: '930.31'
+      vg: centos
+  vgs:
+    centos:
+      free_g: '0.00'
+      num_lvs: '3'
+      num_pvs: '1'
+      size_g: '930.31'
+ansible_machine: x86_64
+ansible_machine_id: 309425a507da473c88d139b9f1b28bdb
+ansible_memfree_mb: 12504
+ansible_memory_mb:
+  nocache:
+    free: 27751
+    used: 4133
+  real:
+    free: 12504
+    total: 31884
+    used: 19380
+  swap:
+    cached: 0
+    free: 16063
+    total: 16063
+    used: 0
+ansible_memtotal_mb: 31884
+ansible_mounts:
+- block_available: 221232
+  block_size: 4096
+  block_total: 259584
+  block_used: 38352
+  device: /dev/sda2
+  fstype: xfs
+  inode_available: 524271
+  inode_total: 524288
+  inode_used: 17
+  mount: /boot
+  options: rw,seclabel,relatime,attr2,inode64,noquota
+  size_available: 906166272
+  size_total: 1063256064
+  uuid: fb076186-f883-4b54-88d5-205aca5b9862
+- block_available: 48325
+  block_size: 4096
+  block_total: 51145
+  block_used: 2820
+  device: /dev/sda1
+  fstype: vfat
+  inode_available: 0
+  inode_total: 0
+  inode_used: 0
+  mount: /boot/efi
+  options: rw,relatime,fmask=0077,dmask=0077,codepage=437,iocharset=ascii,shortname=winnt,errors=remount-ro
+  size_available: 197939200
+  size_total: 209489920
+  uuid: B762-5965
+- block_available: 10858166
+  block_size: 4096
+  block_total: 13100800
+  block_used: 2242634
+  device: /dev/mapper/centos-root
+  fstype: xfs
+  inode_available: 26036520
+  inode_total: 26214400
+  inode_used: 177880
+  mount: /
+  options: rw,seclabel,relatime,attr2,inode64,noquota
+  size_available: 44475047936
+  size_total: 53660876800
+  uuid: 5b485a67-af51-41d2-854a-a00def2839b4
+- block_available: 223552071
+  block_size: 4096
+  block_total: 226544561
+  block_used: 2992490
+  device: /dev/mapper/centos-home
+  fstype: xfs
+  inode_available: 453276478
+  inode_total: 453310464
+  inode_used: 33986
+  mount: /home
+  options: rw,seclabel,relatime,attr2,inode64,noquota
+  size_available: 915669282816
+  size_total: 927926521856
+  uuid: 07306d80-9fb1-4083-a8fb-d0d9a661137f
+ansible_nodename: qp-bd-server-09
+ansible_os_family: RedHat
+ansible_pkg_mgr: yum
+ansible_proc_cmdline:
+  BOOT_IMAGE: /vmlinuz-3.10.0-1062.el7.x86_64
+  LANG: zh_CN.UTF-8
+  crashkernel: auto
+  quiet: true
+  rd.lvm.lv:
+  - centos/root
+  - centos/swap
+  rhgb: true
+  ro: true
+  root: /dev/mapper/centos-root
+  spectre_v2: retpoline
+ansible_processor:
+- '0'
+- GenuineIntel
+- Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz
+- '1'
+- GenuineIntel
+- Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz
+- '2'
+- GenuineIntel
+- Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz
+- '3'
+- GenuineIntel
+- Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz
+- '4'
+- GenuineIntel
+- Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz
+- '5'
+- GenuineIntel
+- Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz
+- '6'
+- GenuineIntel
+- Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz
+- '7'
+- GenuineIntel
+- Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz
+ansible_processor_cores: 8
+ansible_processor_count: 1
+ansible_processor_threads_per_core: 1
+ansible_processor_vcpus: 8
+ansible_product_name: Z370 HD3
+ansible_product_serial: Default string
+ansible_product_uuid: 032E02B4-0499-058C-E706-010700080009
+ansible_product_version: Default string
+ansible_python:
+  executable: /usr/bin/python
+  has_sslcontext: true
+  type: CPython
+  version:
+    major: 2
+    micro: 5
+    minor: 7
+    releaselevel: final
+    serial: 0
+  version_info:
+  - 2
+  - 7
+  - 5
+  - final
+  - 0
+ansible_python_version: 2.7.5
+ansible_real_group_id: 0
+ansible_real_user_id: 0
+ansible_selinux:
+  config_mode: permissive
+  mode: permissive
+  policyvers: 31
+  status: enabled
+  type: targeted
+ansible_selinux_python_present: true
+ansible_service_mgr: systemd
+ansible_ssh_host_key_ecdsa_public: AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBA/9zPQmBieWxEkf5KTRp0qFYVo0FZOlWmzE1aRh5b13lQXuUvykXf64Y3HkujcgzCxeruZh1/55GFtuodm/Ejc=
+ansible_ssh_host_key_ed25519_public: AAAAC3NzaC1lZDI1NTE5AAAAIE3odlVG8RzW7mRhIbBQWpxDxFb6awWxY8i9ejvKbGJF
+ansible_ssh_host_key_rsa_public: AAAAB3NzaC1yc2EAAAADAQABAAABAQDPysaNyR8TFnzE9ikgWcY8msw0E4g/k3xwXwhtis9PZJ9K/bfU5DLZNnvUyqAxA2GTRfNbwXtd5eAZYrWFqe19HGi5AG3Vzej4AzKZXosQqPxbRUmj5PuBuaEZXYQYDRl4f9waYcvVUX9TVhIKBqM1tJ67UX3+qEJZ67gnqRAsFKxnf4bjjLcmxbWAfpgTtZuaVhyRX92vySrO9hG2ozvLrAksmtyewj102lejlLL38ncu0T+YX8aGu3H4gqvzb+48rBNLg/3tPH5be2JBwi/NBwxEDKBT1+bymgrL5HKXxhrSq/OYyxCJ9Th2x8pLbuRSduVkvDaT9Zqi8wubBPIP
+ansible_swapfree_mb: 16063
+ansible_swaptotal_mb: 16063
+ansible_system: Linux
+ansible_system_capabilities:
+- cap_chown
+- cap_dac_override
+- cap_dac_read_search
+- cap_fowner
+- cap_fsetid
+- cap_kill
+- cap_setgid
+- cap_setuid
+- cap_setpcap
+- cap_linux_immutable
+- cap_net_bind_service
+- cap_net_broadcast
+- cap_net_admin
+- cap_net_raw
+- cap_ipc_lock
+- cap_ipc_owner
+- cap_sys_module
+- cap_sys_rawio
+- cap_sys_chroot
+- cap_sys_ptrace
+- cap_sys_pacct
+- cap_sys_admin
+- cap_sys_boot
+- cap_sys_nice
+- cap_sys_resource
+- cap_sys_time
+- cap_sys_tty_config
+- cap_mknod
+- cap_lease
+- cap_audit_write
+- cap_audit_control
+- cap_setfcap
+- cap_mac_override
+- cap_mac_admin
+- cap_syslog
+- '35'
+- 36+ep
+ansible_system_capabilities_enforced: 'True'
+ansible_system_vendor: Gigabyte Technology Co., Ltd.
+ansible_uptime_seconds: 331085
+ansible_user_dir: /root
+ansible_user_gecos: root
+ansible_user_gid: 0
+ansible_user_id: root
+ansible_user_shell: /bin/bash
+ansible_user_uid: 0
+ansible_userspace_architecture: x86_64
+ansible_userspace_bits: '64'
+ansible_virtualization_role: host
+ansible_virtualization_type: kvm
+discovered_interpreter_python: /usr/bin/python
+gather_subset:
+- all
+module_setup: true

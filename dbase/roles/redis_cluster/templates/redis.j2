@@ -1,0 +1,33 @@
+port {{redis_port}}
+bind 0.0.0.0
+cluster-enabled yes
+cluster-config-file {{redis_data_dir}}/nodes.conf
+cluster-node-timeout 15000
+maxclients 60000
+maxmemory 0
+repl-backlog-size 500m
+tcp-backlog 1024
+save 900 1
+save 300 10
+save 60 10000
+stop-writes-on-bgsave-error yes
+rdbcompression yes
+dbfilename dump.rdb
+dir {{redis_data_dir}}
+appendonly yes
+appendfilename appendonly.aof
+appendfsync everysec
+no-appendfsync-on-rewrite yes 
+auto-aof-rewrite-percentage 100
+auto-aof-rewrite-min-size 64mb
+client-output-buffer-limit normal 0 0 0
+client-output-buffer-limit replica 1024mb 256mb 300
+client-output-buffer-limit pubsub 1024mb 128mb 300
+requirepass {{redispass}}
+masterauth {{redispass}}
+rename-command FLUSHALL joYAPNXRPmcarcR4ZDgC81TbdkSmLAzRPmcarcR
+rename-command FLUSHDB  qf69aZbLAX3cf3ednHM3SOlbpH71yEXLAX3cf3e
+#rename-command CONFIG   adminconfig
+rename-command KEYS     adminkeys
+logfile {{redis_data_dir}}/redis-server.log
+#daemonize yes

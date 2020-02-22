@@ -1,0 +1,85 @@
+---
+    - name: install epel repo
+      yum:
+        name: epel-release 
+        state: present
+
+    - name: install dep package
+      yum:
+        name: "{{item.name}}"
+        state: present
+      with_items:
+        - {name: autoconf}
+        - {name: libtool}
+        - {name: bzip2}
+        - {name: gcc}
+        - {name: gcc-c++ }
+        - {name: python-pip}
+    
+    - name: pip install pexpect
+      pip: 
+        name: pexpect
+    
+    - name: download redis zip package
+      unarchive:
+        src: http://download.redis.io/releases/redis-5.0.5.tar.gz
+        dest: /usr/local
+        creates: /usr/local/redis-5.0.5
+        remote_src: yes
+
+    - name: add redis symlink
+      file:
+        path: /usr/local/redis
+        src: /usr/local/redis-5.0.5
+        state: link
+
+    - name: check redis 
+      stat:
+        path: /usr/local/redis-5.0.5/bin
+      register: p
+ 
+    - name: complie redis  
+      make:
+        chdir: /usr/local/redis-5.0.5
+        target: all
+        params:
+          MALLOC: libc
+      when: p.stat.isdir is not defined
+
+    - name: Creates redis bin directory
+      file:
+        path: /usr/local/redis-5.0.5/bin
+        state: directory
+      when: p.stat.isdir is not defined 
+
+    - name: copy redis-server to bin directory
+      copy:
+        src: "{{item.src}}"
+        dest: "{{item.dest}}"
+        mode: o+x
+        remote_src: yes
+      when: p.stat.isdir is not defined
+      with_items:
+        - {src: /usr/local/redis-5.0.5/src/redis-server , dest: /usr/local/redis-5.0.5/bin/redis-server}
+        - {src: /usr/local/redis-5.0.5/src/redis-cli, dest: /usr/local/redis-5.0.5/bin/redis-cli}
+
+    - name: sysctl.conf
+      lineinfile:
+        path: "{{item.path}}"
+        state: present
+        line: "{{item.line}}"
+        regexp: "{{item.regexp}}"
+      with_items:
+        - { path: /etc/sysctl.conf ,line: vm.overcommit_memory=1, regexp: '^vm\.overcommit_memory' }
+        - { path: /etc/sysctl.conf ,line: net.core.somaxconn=65535, regexp: '^net\.core.somaxconn'}
+        - { path: /etc/sysctl.conf ,line: fs.file-max=5000000 , regexp: '^fs\.file-max'}
+        - { path: /etc/sysctl.conf ,line: fs.nr_open=2000000, regexp: '^fs\.nr_open'}
+        - { path: /etc/security/limits.conf , line: redis  hard  nofile  2000000 , regexp: '^redis.*hard'}
+        - { path: /etc/security/limits.conf , line: redis  soft  nofile  2000000 , regexp: '^redis.*soft'}
+
+    - name: tunning redis
+      shell: "{{item}}"
+      with_items:
+        - timedatectl set-timezone Asia/Hong_Kong
+        - echo never > /sys/kernel/mm/transparent_hugepage/enabled
+        - sysctl -p

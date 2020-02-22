@@ -1,0 +1,21 @@
+---
+- name: install consul-template
+  unarchive:
+    src: https://releases.hashicorp.com/consul-template/0.22.0/consul-template_0.22.0_linux_386.zip
+    dest: /usr/bin
+    remote_src: yes
+    mode: o+x
+
+- name: install python-pip
+  yum:
+    name: python-pip
+    state: present 
+
+- name: pip install consul,requests
+  pip:
+    name: "{{item.name}}"
+    state: latest
+  with_items:
+    - { name: requests}
+    - { name: python-consul}
+   

@@ -1,0 +1,55 @@
+---
+
+- name: install redis cluster
+  hosts: redis
+  become: true
+  roles:
+    - role: redis_cluster
+
+- name: install mysql MS
+  hosts: mysql
+  become: true
+  roles:
+    - role: mysql
+
+- name: install consul
+  hosts: consul
+  become: true
+  roles:
+    - role: consul
+
+- name: install orch
+  hosts: orch
+  become: true
+  roles:
+    - role: orchestrator
+
+- name: install consul template
+  hosts: consul_temp
+  become: true
+  roles:
+    - role: consul_template 
+
+- name: migrate db
+  hosts: bk
+  become: true
+  roles:
+    - role: db_migration 
+
+- name: install elastic
+  hosts: es
+  become: true
+  roles:
+    - role: es
+
+- name: install logstash
+  hosts: logstash
+  become: true
+  roles:
+    - role: logstash
+
+- name: install python3
+  hosts: python3
+  become: true
+  roles:
+    - role: python3

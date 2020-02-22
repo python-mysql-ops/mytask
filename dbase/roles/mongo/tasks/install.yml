@@ -1,0 +1,19 @@
+---
+- name: disable selinux
+  selinux:
+    state: disabled
+
+- name: Add mongo repository
+  yum_repository:
+    description: mongo YUM repo
+    name: mongodb
+    baseurl: https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.2/x86_64/
+    gpgcheck: no
+    
+- name: install the latest mongodb
+  yum:
+    name: mongodb-org
+    state: present
+
+
+     

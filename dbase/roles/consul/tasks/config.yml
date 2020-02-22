@@ -1,0 +1,43 @@
+---
+- name: add group consul 
+  group:
+    name: consul
+    state: present
+
+- name: add user consul 
+  user:
+    name: consul 
+    group: consul
+    shell: /sbin/nologin
+    create_home: no 
+
+- name: create consul config file directory
+  file:
+    path:  "{{ item.path }}"
+    state: directory
+    owner: consul
+    group: consul
+  with_items:
+    - { path: /etc/consul.d}
+    - { path: /data/consul}
+
+- name: enable bind 53
+  command: setcap CAP_NET_BIND_SERVICE=+eip /usr/bin/consul
+
+- name: copy config file
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    group: "{{ item.group }}"
+    owner: "{{ item.owner }}"
+  with_items:
+    - {src: ../templates/temp_consul.j2, dest: /etc/consul.d/consul.json, group: consul ,owner: consul}
+    - {src: ../templates/temp_consul_systemctl.j2, dest: /lib/systemd/system/consul.service, group: root ,owner: root}
+
+- name: systemd consul
+  systemd:
+    name: consul
+    daemon_reload: yes
+    state: started
+    enabled: yes
+

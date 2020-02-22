@@ -1,0 +1,41 @@
+input {
+jdbc {
+      jdbc_driver_library => "mysql-connector-java-8.0.18.jar"
+      jdbc_driver_class => "com.mysql.cj.jdbc.Driver"
+      jdbc_connection_string => "jdbc:mysql://{{database_address}}/{{database_name}}?tinyInt1isBit=false"
+      jdbc_user => "{{db_user}}"
+      jdbc_password => "{{db_pass}}"
+      type => "t_behalf"
+      lowercase_column_names => true
+      plugin_timezone => "local"
+      use_column_value => true
+      tracking_column => "update_time"
+      tracking_column_type => "numeric"
+      last_run_metadata_path => "/etc/logstash/conf.d/{{platform}}/.t_behalf"
+      schedule => "* * * * *"
+      statement => "SELECT * from  t_behalf   WHERE update_time >= :sql_last_value"
+    }
+}
+
+filter {
+if [type] == "t_behalf" {
+mutate {
+        convert => {
+          "statu" => "integer"
+        }
+      }
+
+}
+}
+
+output {
+if [type] == "t_behalf" {
+elasticsearch {
+    hosts => "http://{{es_address}}"
+    index => "t_behalf-{{platform}}"
+    document_id => "%{id}"
+    user => "jdbc_logstash"
+    password => "logstash"
+  }
+ }
+}

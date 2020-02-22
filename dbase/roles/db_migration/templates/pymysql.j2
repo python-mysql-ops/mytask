@@ -1,0 +1,58 @@
+import pymysql.cursors
+import sys
+import os
+
+table_name = sys.argv[1]
+dest_dir = sys.argv[2]
+desthost = '{{destdbhost}}'
+sshuser = '{{ansible_ssh_user}}'
+dbname='{{backupdbname}}'
+dbconfig = {
+'host': '127.0.0.1',
+'user': '{{srcdbmylogin}}',
+'password': '{{srcdbmypasswd}}',
+'port':{{srcdbport}},
+'charset':'utf8mb4',
+'cursorclass':pymysql.cursors.DictCursor
+}
+
+dbconfig2 = {
+'host': '{{destdbhost}}',
+'user': '{{destdbmylogin}}',
+'password': '{{destdbmypaasswd}}',
+'port':{{destdbport}},
+'charset':'utf8mb4',
+'cursorclass':pymysql.cursors.DictCursor
+}
+
+
+
+
+
+connection = pymysql.connect(**dbconfig)
+comand= "scp %s.ibd %s@%s:%s" %(table_name,sshuser,desthost,dest_dir)
+
+try:
+   with connection.cursor() as cursor:
+       cursor.execute("stop slave")
+       cursor.execute("show variables like 'datadir'")
+       result = cursor.fetchone()
+       dpath = result['Value'].encode('utf8')
+       comand1= "rsync -avzp %s.ibd %s@%s:%s" %(dpath+dbname+'/'+table_name,sshuser,desthost,dest_dir)
+       comand2= "rsync -avzp %s.cfg %s@%s:%s" %(dpath+dbname+'/'+table_name,sshuser,desthost,dest_dir)
+       cursor.execute('use %s' %dbname)
+       cursor.execute("FLUSH TABLES %s FOR EXPORT" %table_name )
+       os.system(comand1)
+       os.system(comand2)
+       cursor.execute("UNLOCK TABLES")
+finally:
+    connection.close()
+     
+connection = pymysql.connect(**dbconfig2)       
+try:
+   with connection.cursor() as cursor:
+       cursor.execute('use %s' %dbname)
+       cursor.execute("ALTER TABLE %s IMPORT TABLESPACE" %table_name )
+finally:
+    connection.close()
+

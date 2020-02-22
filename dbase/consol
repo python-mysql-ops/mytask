@@ -1,0 +1,12 @@
+[consul]
+10.3.11.5
+10.3.11.6
+10.3.11.7
+
+[consul:vars]
+StrictHostKeyChecking=no
+consul_cluster_hosts='["10.3.11.5","10.3.11.6","10.3.11.7"]'
+ansible_connection=ssh
+ansible_port=22
+ansible_ssh_user=root
+ansible_ssh_pass=$#EDC4rfv

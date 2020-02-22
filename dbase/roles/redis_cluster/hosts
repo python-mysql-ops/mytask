@@ -1,0 +1,15 @@
+[redis]
+redis1 ansible_ssh_host=127.0.0.1 redis_data_dir=/data/redis/3306 redis_port=3306
+redis2 ansible_ssh_host=127.0.0.1 redis_data_dir=/data/redis/3307 redis_port=3307
+redis3 ansible_ssh_host=127.0.0.1 redis_data_dir=/data/redis/3308 redis_port=3308
+redis4 ansible_ssh_host=127.0.0.1 redis_data_dir=/data/redis/33060 redis_port=33060
+redis5 ansible_ssh_host=127.0.0.1 redis_data_dir=/data/redis/33070 redis_port=33070
+redis6 ansible_ssh_host=127.0.0.1 redis_data_dir=/data/redis/33080 redis_port=33080
+
+
+[redis:vars]
+redis_cluster_addres=127.0.0.1:3306 127.0.0.1:3307 127.0.0.1:3308 127.0.0.1:33080    127.0.0.1:33060 127.0.0.1:33070 
+ansible_connection=ssh
+ansible_port=2222
+ansible_ssh_user=vagrant
+ansible_ssh_pass=vagrant
